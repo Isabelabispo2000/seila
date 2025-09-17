@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Drama Site</title>
+  <style>
+    /* ===== ESTILOS GERAIS ===== */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: linear-gradient(to right, #b3f0e6, #ffe6e6);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    /* ===== CONTAINER CENTRAL ===== */
+    .card {
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(8px);
+      border-radius: 20px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+      padding: 40px 30px;
+      max-width: 700px;
+      text-align: center;
+      animation: fadeIn 0.7s ease-in-out;
+    }
+
+    /* ===== TÍTULOS ===== */
+    h2 {
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      margin-bottom: 15px;
+      color: #444;
+    }
+
+    h1 {
+      font-size: 1.5rem;
+      margin-top: 0;
+      margin-bottom: 25px;
+      font-weight: 700;
+      color: #333;
+    }
+
+    /* ===== PARÁGRAFOS ===== */
+    p {
+      font-size: 1rem;
+      margin: 8px 0;
+      line-height: 1.5;
+      color: #555;
+    }
+
+    /* ===== BOTÕES ===== */
+    .buttons {
+      margin-top: 30px;
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    button {
+      padding: 12px 22px;
+      border-radius: 30px;
+      border: none;
+      cursor: pointer;
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+      max-width: 280px;
+    }
+
+    .btn-yes {
+      background: #ffffff;
+      font-weight: bold;
+      color: #1d6d50;
+    }
+
+    .btn-yes:hover {
+      background: #dfffe9;
+      transform: scale(1.05);
+    }
+
+    .btn-no {
+      background: #ffffff;
+      color: #8a1a1a;
+    }
+
+    .btn-no:hover {
+      background: #ffe3e3;
+      transform: scale(1.05);
+    }
+
+    /* ===== MENSAGEM DE ERRO ===== */
+    .mensagem {
+      display: none;
+      margin-top: 20px;
+      padding: 12px;
+      border-radius: 12px;
+      font-weight: bold;
+      animation: fadeIn 0.4s ease-in-out;
+    }
+
+    .mensagem.erro {
+      background: #ffe6e6;
+      color: #b30000;
+      border: 1px solid #ffb3b3;
+    }
+
+    .mensagem.sucesso {
+      background: #dfffe9;
+      color: #1d6d50;
+      border: 1px solid #9ee6c2;
+    }
+
+    /* ===== ANIMAÇÃO ===== */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(15px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>Esse site contém um pouco de drama, mas isso é detalhe. Foca na resposta.</h2>
+
+    <h1>TOP 4 MOTIVOS PARA VOLTAR A DAR AULA PARA A TURMA DE T.I</h1>
+
+    <p>1. Sou a única mulher da sala... sem você, minha representatividade caiu 50%. Agora sou minoria da minoria!</p>
+    <p>2. você é de Gestão... eu sou de Humanas... agora eu tenho que fingir que entendo essa galera da tecnologia.</p>
+    <p>3. RH e ADM já estão se formando... já aprenderam tudo o que tinham para aprender 🔥</p>
+    <p>4. Eu amo homem, mas aqui tem muitooo.</p>
+
+    <p><b>Dito isso, você escolhe:</b></p>
+
+    <div class="buttons">
+      <button class="btn-yes" onclick="respostaCerta()">voltar a dar aula para o t.i</button>
+      <button class="btn-no" onclick="respostaErrada()">continuar dando aula para os vizinhos, mesmo que eles já tenham outros três professores de gestão, ignorando os motivos citados.</button>
+    </div>
+
+    <div id="mensagem" class="mensagem"></div>
+  </div>
+
+  <script>
+    function respostaCerta() {
+      const mensagem = document.getElementById("mensagem");
+      mensagem.textContent = "🎉 Parabéns, resposta certa!";
+      mensagem.className = "mensagem sucesso";
+      mensagem.style.display = "block";
+    }
+
+    function respostaErrada() {
+      const mensagem = document.getElementById("mensagem");
+      mensagem.textContent = "❌ ERRO: Essa não é a resposta certa!";
+      mensagem.className = "mensagem erro";
+      mensagem.style.display = "block";
+    }
+  </script>
+</body>
+</html>
